@@ -87,7 +87,7 @@ Values for experimenting
 | Hyperparameter | Values             |
 |----------------|----------------------------|
 | lr             | 0.001 to 0.1               |
-| batch-size     | 32, 64, 128                |
+| batch size     | 32, 64, 128                |
 | epochs         | 1, 2                       |
 
 
@@ -99,14 +99,12 @@ Best Hyperparameters after tunning
 | Hyperparameter | Tuned Value                |
 |----------------|----------------------------|
 | lr             | 0.0010152583471663874      |
-| batch Size     | 64                         |
+| batch size     | 64                         |
 | epochs         | 2                          |
 
 
 
 ![](./screenshots/besttrainingjob.png)
-
-
 
 
 
