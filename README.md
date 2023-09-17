@@ -337,13 +337,14 @@ for img_path in image_paths:
 
 ![](./results_inference/predicted_German_shepherd_dog_dog5.jpeg)
 
-![](./results_inference/predicted_Alaskan_malamute_dog6.jpeg)
+![](./results_inference/predicted_Alaskan_malamute_dog6.jpg)
 
-![](./results_inference/predicted_Bernese_mountain_dog_dog4.jpeg)
+![](./results_inference/predicted_Bernese_mountain_dog_dog4.jpg)
 
-![](./results_inference/predicted_Golden_retriever_dog3.jpeg)
+![](./results_inference/predicted_Golden_retriever_dog3.jpg)
 
 
 
-![This is my dog, she is not a goldie but she is cute anyway](./results_inference/predicted_Golden_retriever_dog1.jpeg)
+![This is my dog, she is not a goldie but she is cute anyway](./results_inference/predicted_Golden_retriever_dog1.png)
+**This is my dog, she is not a goldie but she is cutie**
 
