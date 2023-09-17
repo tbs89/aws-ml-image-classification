@@ -1,14 +1,12 @@
 import os
-import numpy as np
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
-import torchvision
 import torchvision.models as models
 import torchvision.transforms as transforms
 from torchvision import datasets as torchvision_datasets
 import smdebug.pytorch as smd
+import argparse
 
 from PIL import ImageFile
 
