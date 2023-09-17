@@ -160,21 +160,21 @@ rules = [
 ```python
 debugging_collections = [
     CollectionConfig(
-        name="weights",
+        name="model_weights",
         parameters={
             "train.save_interval": "5",
             "eval.save_interval": "1"
         }
     ),
     CollectionConfig(
-        name="gradients",
+        name="model_gradients",
         parameters={
             "train.save_interval": "5",
             "eval.save_interval": "1"
         }
     ),
     CollectionConfig(
-        name="biases",
+        name="biases_values",
         parameters={
             "train.save_interval": "5",
             "eval.save_interval": "1"
