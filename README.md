@@ -2,11 +2,59 @@
 
 In this project, I used AWS Sagemaker to train a pretrained model that can perform image classification by using the Sagemaker profiling, debugger, hyperparameter tuning and other good ML engineering practices.
 
+
+# Project Schema
+
+```
+aws-ml-image-classification/
+|----LICENSE.txt
+|----README.md
+|----hpo.py
+|----inference.py
+|----train_and_deploy.ipynb
+|----train_model.py
+|
+|----test-photos-of-dogs/
+|    |----dog1.png
+|    |----dog2.jpg
+|    |----dog3.jpg
+|    |----dog4.jpg
+|    |----dog5.jpeg
+|    |----dog6.jpg
+|    |----dog7.png
+|
+|----screenshots/
+|    |----alljobs.png
+|    |----besttrainingjob.png
+|    |----endpoint_deployed.png
+|    |----hyperparameter_jobs.png
+|    |----infojob1.png
+|    |----infojob2.png
+|    |----infojob3.png
+|    |----training_jobs.png
+|    |----trial_screenshot.png
+|
+|----ProfilerReport/
+|    |----profiler-output/
+|        |----profiler-report.html
+|        |----profiler-report.ipynb
+|
+|----results_inference/
+     |----predicted_Alaskan_malamute_dog6.jpg
+     |----predicted_American_eskimo_dog_dog2.jpg
+     |----predicted_Bernese_mountain_dog_dog4.jpg
+     |----predicted_Cane_corso_dog7.png
+     |----predicted_German_shepherd_dog_dog5.jpeg
+     |----predicted_Golden_retriever_dog1.png
+     |----predicted_Golden_retriever_dog3.jpg
+```
+
+
 ## Project Set Up and Installation
 
-- Enter AWS through the gateway in the course and open SageMaker Studio. 
+- Login in AWS and open SageMaker Studio. 
 - Create an instance notebook using <code>ml.t3.medium</code> instance and <code>Pythorch 2.0.0 Python CPU Optimized</code> image.
-- Upload the necessary filess of the project in order to run our project:
+- Upload the necessary files of the project in order to run our project:
     - <code>hpo.py:</code> script to train the model for hyperparamenter tuning
     - <code>train_model.py:</code> script to train model using debugging and profiling hooks
     - <code>inference.py:</code> script to deploy and inference
@@ -20,7 +68,7 @@ In this project, I used AWS Sagemaker to train a pretrained model that can perfo
 The provided dataset is the dogbreed classification dataset which can be downloaded clicking [here](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip).
 Our dataset comprises images that represent 133 distinct dog breeds. The breeds range from the widely recognized, such as the Labrador Retriever and the German Shepherd, to the more unique breeds like the Norwegian Buhund and the Plott. 
 
-Once the data is downloaded, it will be already split in three subfolders (train, test and valid) in order to create our model.
+Once the data is downloaded, it will be already split in three subfolders (<code>train, test and valid</code>) in order to create our model.
  
 
 ## Hyperparameter Tuning
@@ -29,30 +77,38 @@ For our project we user a Base Model <code>ResNet50</code>, a powerful convoluti
 
 Chosen Hyperparameters
 
-- Learning rate (lr): Determines step size during optimization. High values can overshoot; low values can slow training.
-- Bratch size: Number of samples per weight update. Bigger batches are more stable but may generalize less effectively.
-- Epochs: Times the model sees the entire dataset. More epochs can improve learning but risk overfitting.
+- **Learning rate (lr):** Determines step size during optimization. High values can overshoot; low values can slow training.
+- **Bratch size:** Number of samples per weight update. Bigger batches are more stable but may generalize less effectively.
+- **Epochs:** Times the model sees the entire dataset. More epochs can improve learning but risk overfitting.
 
 
 Values for experimenting
 
-| Hyperparameter | Range/Options              |
+| Hyperparameter | Values             |
 |----------------|----------------------------|
 | lr             | 0.001 to 0.1               |
 | batch-size     | 32, 64, 128                |
 | epochs         | 1, 2                       |
 
 
-Our tunning job consisted in 3 trianing jobs using a <code>ml.c5.2xlarge</code> instance and choosing as a metric the average test loss. 
+Our tunning job consisted in 3 training jobs using a <code>ml.c5.2xlarge</code> instance and choosing as a metric the Average Test Loss (AVG Test loss). 
 
 
 Best Hyperparameters after tunning
 
 | Hyperparameter | Tuned Value                |
 |----------------|----------------------------|
-| Learning Rate  | 0.0010152583471663874      |
-| Batch Size     | 64                         |
-| Epochs         | 2                          |
+| lr             | 0.0010152583471663874      |
+| batch Size     | 64                         |
+| epochs         | 2                          |
+
+
+
+![](./screenshots/besttrainingjob.png)
+
+
+
+
 
 
 ### Screenshots
@@ -89,11 +145,6 @@ Best Hyperparameters after tunning
 
 
 ![](./screenshots/alljobs.png)
-
-
-
-![](./screenshots/besttrainingjob.png)
-
 
 
 
