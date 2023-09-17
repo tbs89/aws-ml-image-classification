@@ -361,6 +361,11 @@ def preprocess_and_predict(img_path, predictor):
     response = predictor.predict(image.numpy())
     return response, dog_pil
 
+
+# List with image paths for predictions
+directory_path = './test-photos-of-dogs/'
+image_paths = [os.path.join(directory_path, img) for img in os.listdir(directory_path) if img.endswith(('.png', '.jpg', '.jpeg'))]
+
 # Loop
 for img_path in image_paths:
     prediction, dog_image = preprocess_and_predict(img_path, predictor)
