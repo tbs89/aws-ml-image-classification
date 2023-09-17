@@ -7,12 +7,12 @@ In this project, I used AWS Sagemaker to train a pretrained model that can perfo
 - Enter AWS through the gateway in the course and open SageMaker Studio. 
 - Create an instance notebook using <code>ml.t3.medium</code> instance and <code>Pythorch 2.0.0 Python CPU Optimized</code> image.
 - Upload the necessary filess of the project in order to run our project:
-    - hpo.py: script to train the model for hyperparamenter tuning
-    - train_model.py: script to train model using debugging and profiling hooks
-    - inference.py: script to deploy and inference
-    - train_deploy.ipynb: main notebook to download our data and make all the process for our project
-    - [OPTIONAL] test-photos-of-dogs folder contains random pictures of dogs in order to inference the deployed model
-    - [OPTIONAL] results_inference will contain the results of there predictions
+    - <code>hpo.py:</code> script to train the model for hyperparamenter tuning
+    - <code>train_model.py:</code> script to train model using debugging and profiling hooks
+    - <code>inference.py:</code> script to deploy and inference
+    - <code>train_deploy.ipynb:</code> main notebook to download our data and make all the process for our project
+    - [OPTIONAL] <code>test-photos-of-dogs</code> folder contains random pictures of dogs in order to inference the deployed model
+    - [OPTIONAL] <code>results_inference</code> will contain the results of there predictions
 
 
 
@@ -151,6 +151,8 @@ profiling_configuration = ProfilerConfig(system_monitor_interval_millis=500,
                                          framework_profile_params=FrameworkProfile())
 
 ```
+
+The report in HTML format is included in <code>ProfilerReport</code>.
 
 
 ### Results
@@ -346,5 +348,6 @@ for img_path in image_paths:
 
 
 ![This is my dog, she is not a goldie but she is cute anyway](./results_inference/predicted_Golden_retriever_dog1.png)
-**This is my dog, she is not a goldie but she is cutie**
+
+**This is my dog, she is not a goldie but she is a cutie**
 
