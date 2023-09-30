@@ -371,8 +371,7 @@ for img_path in image_paths:
     prediction, dog_image = preprocess_and_predict(img_path, predictor)
     
     predicted_index = np.argmax(prediction)
-    breeds = list(unique_breeds)
-    breeds = sorted(breeds)
+    breeds = sorted(list(unique_breeds))
     predicted_breed = breeds[predicted_index]
     name_breed = predicted_breed.split('.')[1]
     
